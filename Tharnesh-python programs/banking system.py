@@ -1,36 +1,36 @@
-username1="Tharnesh"
-password1=2003
-username=str(input("Enter the username:"))
-password=eval(input("Enter the password:"))
-acbalance=0
+username1 = "Tharnesh"
+password1 = 2003
 def bank_ac():
-    acbalance=0
-    if(username==username1 and password==password1):
-        print("your account was logged in successfully")
-        print("1.check bank balance")
-        print("2.deposit")
-        print("3.withdraw")
-        opt=eval(input("what do you want do do?"))
-        if opt==2:
-            deposit=eval(input("Enter the amount:"))
-            ac_balance1=0+deposit
-            print("After deposit your account balance is:",deposit)
-            bank_ac()
-        elif opt==3:
-            withdraw=eval(input("Enter the amount to withdraw:"))
-            if withdraw>ac_balance1:
-                print("no sufficient amount please enter another amount")
+    acbalance = 0
+    username = input("Enter your username: ")
+    password = int(input("Enter your password: "))
+    if username == username1 and password == password1:
+        print("Your account was logged in successfully")
+        while True:
+            print("1. Check bank balance")
+            print("2. Deposit")
+            print("3. Withdraw")
+            print("4. Exit")
+            opt = int(input("What do you want to do? "))
+            if opt == 1:
+                print("Your account balance is:", acbalance)
+            elif opt == 2:
+                deposit = int(input("Enter the amount to deposit: "))
+                acbalance += deposit
+                print("After deposit, your account balance is:", acbalance)
+            elif opt == 3:
+                withdraw = int(input("Enter the amount to withdraw: "))
+                if withdraw > acbalance:
+                    print("Insufficient funds")
+                else:
+                    acbalance -= withdraw
+                    print("The amount is withdrawn successfully")
+                    print("After withdrawal, the balance is:", acbalance)
+            elif opt == 4:
+                print("Thank you for using our banking system")
+                break
             else:
-                print("The amount is withdrawn successfully")
-                withdrawal=acbalance-withdraw
-                print("After withdrawal the balance is:",withdrawal)
-                return acbalance
-                bank_ac()
-        else:
-            ac_balance1=0+deposit
-            print("your account balance is:",acbalance1)
+                print("Invalid option")
+    else:
+        print("Invalid username or password")
 bank_ac()
-        
-    
-
-
